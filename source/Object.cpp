@@ -4,7 +4,7 @@
 
 
 #include <cmath>
-#include "GameObjects.h"
+#include "AllObj.h"
 
 
 void Object::Move()
@@ -35,7 +35,7 @@ void Object::SetScreenPosition(sf::Vector2i position)
     screenPosition = position;
 }
 
-void Object::SetSprite(sf::Sprite s)
+void Object::SetSprite( sf::Sprite s)
 {
     sprite = s;
 }
@@ -59,11 +59,11 @@ sf::Vector2f Object::getSpeed()
 
 sf::Vector2f RotateVector(sf::Vector2f vec, float alpha)
 {
-    sf::Vector2f New = vec;
-    New.x = vec.x * std::cos(alpha) - vec.y * std::sin(alpha);
-    New.y = vec.x * std::sin(alpha) + vec.y * cos(alpha);
+    sf::Vector2f newVec = vec;
+    newVec.x = vec.x * std::cos(alpha) - vec.y * std::sin(alpha);
+    newVec.y = vec.x * std::sin(alpha) + vec.y * cos(alpha);
 
-    return New;
+    return newVec;
 }
 
 

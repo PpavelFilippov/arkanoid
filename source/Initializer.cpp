@@ -2,7 +2,7 @@
 // Created by roucr on 17.08.2023.
 //
 
-#include "GameObjects.h"
+#include "AllObj.h"
 #include "Bonus.h"
 #include "Initializer.h"
 #include <random>
@@ -31,12 +31,12 @@ Initializer::Initializer()
     {
         switch (i % 6)
         {
-            case 0: { p = new BChangePaddleScale(ball, paddle, Blocks, i);  break; }
-            case 1: { p = new BChangeBallSpeed(ball, paddle, Blocks, i); break; }
-            case 2: { p = new BStickyPaddle(ball, paddle, Blocks, i); break; }
-            case 3: { p = new BSafeBottom(ball, paddle, Blocks, i); break; }
+            case 0: { p = new BChangePaddleScale(ball, paddle, Blocks, i);   break; }
+            case 1: { p = new BChangeBallSpeed(ball, paddle, Blocks, i);     break; }
+            case 2: { p = new BStickyPaddle(ball, paddle, Blocks, i);        break; }
+            case 3: { p = new BSafeBottom(ball, paddle, Blocks, i);          break; }
             case 4: { p = new BChangeBallDirection(ball, paddle, Blocks, i); break; }
-            case 5: { p = new BCreateMovingBlock(ball, paddle, Blocks, i); break; }
+            case 5: { p = new BCreateMovingBlock(ball, paddle, Blocks, i);   break; }
         }
         Bonuses[i] = p;
     }
@@ -59,7 +59,8 @@ Initializer::~Initializer()
     {
         delete Bonuses[j];
     }
-    //delete paddle;
+
+    delete paddle;
 }
 
 

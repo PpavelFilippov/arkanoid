@@ -5,7 +5,7 @@
 #ifndef INITIALIZER_H
 #define INITIALIZER_H
 
-#include "GameObjects.h"
+#include "AllObj.h"
 #include "Bonus.h"
 #include <vector>
 

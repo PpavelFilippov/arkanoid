@@ -6,7 +6,7 @@
 #define BUILDER_H
 
 #include "Object.h"
-#include "GameObjects.h"
+#include "AllObj.h"
 #include "Bonus.h"
 
 
@@ -17,9 +17,9 @@ class Builder : public Object
 
 public:
     Builder(Ball *ball, std::vector < Bonus*> Bonuses, Paddle *paddle, std::vector<std::vector<Block*>> Blocks) : ball(ball), paddle(paddle), Bonuses(Bonuses), Blocks(Blocks) {};
-
+    ~Builder() override = default;
     sf::Vector2i getFieldSize();
-    virtual sf::Vector2i getSize(); //make override
+    sf::Vector2i getSize() override;
 
     void BallMakeStep(Ball* ball);
     void BlockMakeStep(Block *block);
@@ -32,9 +32,9 @@ public:
     void PaddleInteraction(Ball *ball);
     void BlocksInteraction(Ball *ball);
 
-    int getMaxBonuses() const;
-    int getRemainingLives() const;
-    int getGameStatus() const;
+    int getMaxBonuses();
+    int getRemainingLives();
+    int getGameStatus();
     Block* getBlock(int i, int j);
     Ball* getBall();
     Bonus* getBonus(int i);

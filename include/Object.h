@@ -25,11 +25,11 @@ protected:
 public:
     virtual void Move();
     virtual sf::Vector2i getSize() = 0;
-
+    virtual ~Object() = default;
     void Draw(sf::RenderWindow *window);
 
     void SetSpeed(sf::Vector2f speed);
-    void SetScreenPosition(sf::Vector2i position); //TODO: set names without abbreviations
+    void SetScreenPosition(sf::Vector2i position);
     void SetSprite(sf::Sprite sprite);
     sf::Vector2f getSpeed();
     sf::Vector2i getScreenPosition();

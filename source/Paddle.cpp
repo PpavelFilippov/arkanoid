@@ -2,7 +2,7 @@
 // Created by roucr on 15.08.2023.
 //
 
-#include "GameObjects.h"
+#include "AllObj.h"
 #include <random>
 
 

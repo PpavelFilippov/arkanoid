@@ -2,7 +2,7 @@
 // Created by roucr on 15.08.2023.
 //
 
-#include "GameObjects.h"
+#include "AllObj.h"
 
 Block::Block(int i, int j, int h)
 {
@@ -17,8 +17,8 @@ Block::Block(int i, int j, int h)
 
     tablePosition.x = i;
     tablePosition.y = j;
-    screenPosition.x = 5 + (size.x + 5) * i;
-    screenPosition.y = 3 + (size.y + 3) * j;
+    screenPosition.x = 5 + (1.5 * size.x + 5) * i;
+    screenPosition.y = 3 + (1.5 * size.y + 3) * j;
 
     speed = { 0,0 };
 }

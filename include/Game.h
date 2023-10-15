@@ -6,7 +6,7 @@
 #ifndef ARCANOID_H
 #define ARCANOID_H
 
-#include "GameObjects.h"
+#include "AllObj.h"
 #include "Initializer.h"
 #include "Builder.h"
 #include "Interface.h"

@@ -5,7 +5,7 @@
 #ifndef BONUS_H
 #define BONUS_H
 
-#include "GameObjects.h"
+#include "AllObj.h"
 #include <random>
 
 class Bonus : public Object
@@ -20,11 +20,12 @@ public:
     sf::Vector2i FieldSize = { WIDTH,HEIGHT };
 
     Bonus( Ball* ball, Paddle *paddle,  std::vector<std::vector<Block*>> Blocks, int i);
+    ~Bonus() override = default;
 
     void InitBonus(sf::Vector2i t);
     virtual void MakeAction() {};
     void ResetBonus();
-    virtual sf::Vector2i getSize();
+    sf::Vector2i getSize() override;
 };
 
 
@@ -32,7 +33,8 @@ class BChangePaddleScale : public Bonus
 {
 public:
     BChangePaddleScale(Ball* ball, Paddle *paddle,  std::vector<std::vector<Block*>> Blocks, int i) :Bonus(ball, paddle, Blocks, i) {};
-    void MakeAction()
+    ~BChangePaddleScale() override = default;
+    void MakeAction() override
     {
         std::cout << "Paddle change bonus is activated" << std::endl;
         paddle->SetRandomScale();
@@ -46,7 +48,8 @@ class BChangeBallSpeed :public Bonus
 {
 public:
     BChangeBallSpeed( Ball* ball, Paddle *paddle,  std::vector<std::vector<Block*>> Blocks, int i) :Bonus(ball, paddle, Blocks, i) {};
-    void MakeAction()
+    ~BChangeBallSpeed() override = default;
+    void MakeAction() override
     {
         sf::Vector2f speed, zeros = { 0,0 };
         sf::Vector2f v1, v2;
@@ -71,7 +74,8 @@ class BStickyPaddle : public Bonus
 {
 public:
     BStickyPaddle( Ball* ball, Paddle *paddle,  std::vector<std::vector<Block*>> Blocks, int i) :Bonus(ball, paddle, Blocks, i) {};
-    void MakeAction()
+    ~BStickyPaddle() override = default;
+    void MakeAction() override
     {
         paddle->SetSticky();
         std::cout << "Sticky paddle bonus is activated" << std::endl;
@@ -83,7 +87,8 @@ class BSafeBottom : public Bonus
 {
 public:
     BSafeBottom( Ball* ball, Paddle *paddle,  std::vector<std::vector<Block*>> Blocks, int i) :Bonus(ball, paddle, Blocks, i) {};
-    void MakeAction()
+    ~BSafeBottom() override = default;
+    void MakeAction() override
     {
         ball->SetSafe();
         std::cout << "Safe bottom bonus id activated!" << std::endl;
@@ -95,7 +100,8 @@ class BCreateMovingBlock : public Bonus
 {
 public:
     BCreateMovingBlock( Ball* ball, Paddle *paddle,  std::vector<std::vector<Block*>> Blocks, int i) :Bonus(ball, paddle, Blocks, i) {};
-    void MakeAction()
+    ~BCreateMovingBlock() override = default;
+    void MakeAction() override
     {
         for (int i = FieldSize.y - 1; i >= 0; i--)
         {
@@ -118,7 +124,7 @@ class BChangeBallDirection : public Bonus
 {
 public:
     BChangeBallDirection( Ball* ball, Paddle *paddle,  std::vector<std::vector<Block*>> Blocks, int i) :Bonus(ball, paddle, Blocks, i) {};
-
+    ~BChangeBallDirection() override = default;
     void MakeAction() override
     {
         sf::Vector2f v1, v2;
@@ -126,8 +132,7 @@ public:
         std::mt19937 gen(rd());
         std::uniform_real_distribution<float> angleDistribution(0.0f, 360.0f);
         float randomAngle = angleDistribution(gen);
-        float angleInRadians = randomAngle * M_PI / 180.0f; //TODO: make rand time
-
+        float angleInRadians = randomAngle * M_PI / 180.0f;
             v1 = ball->getSpeed();
             v2 = RotateVector(v1, angleInRadians);
             std::cout << "Change direction ball bonus is activated" << std::endl;

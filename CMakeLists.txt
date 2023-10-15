@@ -16,7 +16,7 @@ add_executable(arkanoid
         source/Block.cpp
         source/Bonus.cpp
         include/Bonus.h
-        include/GameObjects.h
+        include/AllObj.h
         source/Interactions.cpp
         source/Object.cpp
         include/Object.h
@@ -29,6 +29,7 @@ add_executable(arkanoid
         source/Interface.cpp
         include/Interface.h)
 
+set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR "C:\\SFML\\lib\\cmake\\SFML")
 
 target_link_libraries(arkanoid sfml-graphics)

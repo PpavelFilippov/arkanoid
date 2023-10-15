@@ -33,7 +33,8 @@ void Game::Play()
 
     sf::Texture backgroundTexture;
     backgroundTexture.loadFromFile("resourses/background3.png"); //need to think about textures
-    sf::Sprite background(backgroundTexture);  sf::Font font;
+    sf::Sprite background(backgroundTexture);
+    sf::Font font;
     font.loadFromFile("resourses/FONT.ttf");
     sf::Text livesText("", font, 30);
     livesText.setFillColor(sf::Color::White);

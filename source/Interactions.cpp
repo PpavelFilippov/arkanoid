@@ -2,7 +2,7 @@
 // Created by roucr on 18.08.2023.
 //
 
-#include "GameObjects.h"
+#include "AllObj.h"
 #include "Builder.h"
 //#include "Bonus.h"
 
@@ -15,7 +15,7 @@ void Builder::PaddleInteraction(Ball *ball)
         sf::Vector2f v = ball->getSpeed();
         sf::Vector2f v1;
         v1.x = 0;
-        v1.y = -sqrt(v.x * v.x + v.y * v.y);
+        v1.y = -sqrt(v.x*v.x + v.y*v.y);
         v = v1;
 
         if (!ball->isOnPaddle())
@@ -28,7 +28,6 @@ void Builder::PaddleInteraction(Ball *ball)
 
             mult = ball->getScreenPosition().x + ball->getSize().x / 2;
             mult = (float)(mult - (paddle->getScreenPosition().x + paddle->getSize().x / 2)) / paddle->getSize().x;
-
             v = RotateVector(v, (M_PI / 2 * mult));
 
             ball->SetSpeed(v);

@@ -5,7 +5,7 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-#include "GameObjects.h"
+#include "AllObj.h"
 #include "Builder.h"
 #include "Bonus.h"
 

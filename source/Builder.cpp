@@ -2,7 +2,7 @@
 // Created by roucr on 17.08.2023.
 //
 
-#include "GameObjects.h"
+#include "AllObj.h"
 #include "Builder.h"
 #include "Bonus.h"
 
@@ -110,7 +110,7 @@ void Builder::VictoryCheck()
         {
             for (int j = 0; j < FieldSize.y; j++)
             {
-                if (!Blocks[i][j]->isDead())
+                if (!Blocks[i][j]->isDead() && Blocks[i][j]->getFeature() != Unbreakable)
                     return;
             }
         }
@@ -174,19 +174,19 @@ void Builder::ScreenCheck(Ball *ball)
 }
 
 
-int Builder::getMaxBonuses() const
+int Builder::getMaxBonuses()
 {
     return MaxBonuses;
 }
 
 
-int Builder::getRemainingLives() const
+int Builder::getRemainingLives()
 {
     return RemainingLives;
 }
 
 
-int Builder::getGameStatus() const
+int Builder::getGameStatus()
 {
     return GameStatus;
 }

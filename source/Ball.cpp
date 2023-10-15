@@ -2,7 +2,7 @@
 // Created by roucr on 15.08.2023.
 //
 
-#include "GameObjects.h"
+#include "AllObj.h"
 
 Ball::Ball()
 {
@@ -64,7 +64,7 @@ void Ball::ResetBall()
 }
 
 
-void Ball::ReverseSpeed(char axis) //TODO: rename to reverse
+void Ball::ReverseSpeed(char axis)
 {
     if (axis == 'x')
     {
